@@ -9,6 +9,7 @@ function loadSheet(sheetName){
         header: true,
 
         complete: function(results){
+            console.log(results.data);
 
             window.questions = results.data;
             window.currentQuestion = 0;
@@ -91,5 +92,7 @@ new URLSearchParams(window.location.search);
 
 const sheetName =
 params.get("sheet") || "生理・生化";
+
+console.log("sheetName =", sheetName);
 
 loadSheet(sheetName);
