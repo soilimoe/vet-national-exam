@@ -101,12 +101,14 @@ function showQuestion(){
     const q = window.questions[window.currentQuestion];
     const img = q.image;
 
+    const category = q.category || window.currentCategory || "";
+
     const percent =
         Math.round(100 * (window.currentQuestion + 1) / window.questions.length);
 
     document.getElementById("progress").innerHTML =
         `<h3>問題 ${window.currentQuestion + 1} / ${window.questions.length}（${percent}%）</h3>`;
-    
+
     window.correctAnswer = q.answer;
     window.comment = q.comment;
 
@@ -114,8 +116,6 @@ function showQuestion(){
         `<h4>[${category}]</h4>
         ${img ? `<img src="${img}" style="max-width:100%; margin:10px 0;">` : ""}
         <h2>${q.question.replaceAll("\n","<br>")}</h2>`;
-
-    const category = q.category || window.currentCategory || "";
 
     let html = "";
 
