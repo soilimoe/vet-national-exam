@@ -9,8 +9,8 @@ Papa.parse(csvUrl, {
 
         window.questions = results.data;
         window.currentQuestion = 0;
+        showQuestion();
         
-        const q = results.data[0];
         window.correctAnswer = q.answer;
         window.comment = q.comment;
 
@@ -61,6 +61,13 @@ function checkAnswer(selected){
     }
 }
 
-function nextQuestion() {
-    alert("次へ");
+function nextQuestion(){
+
+    if(window.currentQuestion <
+       window.questions.length - 1){
+
+        window.currentQuestion++;
+
+        showQuestion();
+    }
 }
