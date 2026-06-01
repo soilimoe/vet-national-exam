@@ -1,15 +1,22 @@
-const csvUrl =
-"https://docs.google.com/spreadsheets/d/1pcYtP8XjDBDOrn5T90sLkeIQGJSOHEAisLU7m0QnPHg/gviz/tq?tqx=out:csv&sheet=生理・生化";
+function loadSheet(sheetName){
 
-Papa.parse(csvUrl, {
-    download: true,
-    header: true,
-    complete: function(results) {
-        window.questions = results.data;
-        window.currentQuestion = 0;
-        showQuestion();
-    }
-});
+    const csvUrl =
+    `https://docs.google.com/spreadsheets/d/1pcYtP8XjDBDOrn5T90sLkeIQGJSOHEAisLU7m0QnPHg/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
+
+    Papa.parse(csvUrl, {
+
+        download: true,
+        header: true,
+
+        complete: function(results){
+
+            window.questions = results.data;
+            window.currentQuestion = 0;
+
+            showQuestion();
+        }
+    });
+}
 
 function showQuestion(){
 
