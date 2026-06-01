@@ -1,32 +1,32 @@
-const csvUrl = "https://docs.google.com/spreadsheets/d/1pcYtP8XjDBDOrn5T90sLkeIQGJSOHEAisLU7m0QnPHg/gviz/tq?tqx=out:csv&sheet=生理・生化";
+const csvUrl =
+"https://docs.google.com/spreadsheets/d/1pcYtP8XjDBDOrn5T90sLkeIQGJSOHEAisLU7m0QnPHg/gviz/tq?tqx=out:csv&sheet=生理・生化";
 
-fetch(csvUrl)
-  .then(response => response.text())
-  .then(data => {
-    const rows = data.trim().split("\n");
+Papa.parse(csvUrl, {
+    download: true,
+    header: true,
 
-    const firstQuestion = rows[1];
+    complete: function(results) {
 
-    const cols = firstQuestion.split(",");
+        const q = results.data[0];
 
-    const question = cols[2].replaceAll('"', '');
-    document.getElementById("question").innerHTML =
-  `<h2>${question.replaceAll("\n", "<br>")}</h2>`;
+        document.getElementById("question").innerHTML =
+            `<h2>${q.question.replaceAll("\n","<br>")}</h2>`;
 
-    let html = "";
+        let html = "";
 
-    for(let i=3; i<=7; i++){
+        for(let i=1;i<=5;i++){
 
-      if(cols[i]){
+            const choice = q[`choice${i}`];
 
-        html += `
-          <button>${cols[i]}</button>
-          <br><br>
-        `;
-      }
+            if(choice){
 
+                html += `
+                <button>${choice}</button>
+                <br><br>
+                `;
+            }
+        }
+
+        document.getElementById("choices").innerHTML = html;
     }
-
-    document.getElementById("choices").innerHTML =
-      html;
-  });
+});
