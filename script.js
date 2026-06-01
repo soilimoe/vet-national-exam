@@ -9,6 +9,7 @@ Papa.parse(csvUrl, {
 
         const q = results.data[0];
         window.correctAnswer = q.answer;
+        window.comment = q.comment;
 
         document.getElementById("question").innerHTML =
             `<h2>${q.question.replaceAll("\n","<br>")}</h2>`;
@@ -40,12 +41,19 @@ function checkAnswer(selected){
     if(selected === window.correctAnswer){
 
         result.innerHTML =
-        "<h2>⭕ 正解！</h2>";
+        `
+        <h2>⭕ 正解！</h2>
+        <p>${window.comment}</p>
+        `;
 
     } else {
 
         result.innerHTML =
-        "<h2>❌ 不正解</h2>";
+        `
+        <h2>❌ 不正解</h2>
+        <p>正解：${window.correctAnswer}</p>
+        <p>${window.comment}</p>
+        `;
 
     }
 }
