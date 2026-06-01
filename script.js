@@ -8,6 +8,7 @@ Papa.parse(csvUrl, {
     complete: function(results) {
 
         const q = results.data[0];
+        window.correctAnswer = q.answer;
 
         document.getElementById("question").innerHTML =
             `<h2>${q.question.replaceAll("\n","<br>")}</h2>`;
@@ -21,7 +22,7 @@ Papa.parse(csvUrl, {
             if(choice){
 
                 html += `
-                <button onclick="checkAnswer(${i})">
+                <button onclick="checkAnswer('${choice}')">
                 ${choice}
                 </button>
                 <br><br>
