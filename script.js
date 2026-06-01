@@ -1,5 +1,5 @@
 function loadSheet(sheetName){
-
+    console.log("読み込み:", sheetName);
     const csvUrl =
     `https://docs.google.com/spreadsheets/d/1pcYtP8XjDBDOrn5T90sLkeIQGJSOHEAisLU7m0QnPHg/gviz/tq?tqx=out:csv&sheet=${sheetName}`;
 
