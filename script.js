@@ -21,7 +21,9 @@ Papa.parse(csvUrl, {
             if(choice){
 
                 html += `
-                <button>${choice}</button>
+                <button onclick="checkAnswer(${i})">
+                ${choice}
+                </button>
                 <br><br>
                 `;
             }
