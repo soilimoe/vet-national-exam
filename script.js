@@ -4,38 +4,45 @@ const csvUrl =
 Papa.parse(csvUrl, {
     download: true,
     header: true,
-
     complete: function(results) {
-
         window.questions = results.data;
         window.currentQuestion = 0;
         showQuestion();
-        
-        window.correctAnswer = q.answer;
-        window.comment = q.comment;
-
-        document.getElementById("question").innerHTML =
-            `<h2>${q.question.replaceAll("\n","<br>")}</h2>`;
-
-        let html = "";
-
-        for(let i=1;i<=5;i++){
-
-            const choice = q[`choice${i}`];
-
-            if(choice){
-
-                html += `
-                <button onclick="checkAnswer('${choice}')">
-                ${choice}
-                </button>
-                <br><br>
-                `;
-            }
-        }
-        document.getElementById("choices").innerHTML = html;
     }
 });
+
+function showQuestion(){
+
+    const q =
+    window.questions[window.currentQuestion];
+
+    window.correctAnswer = q.answer;
+    window.comment = q.comment;
+
+    document.getElementById("question").innerHTML =
+        `<h2>${q.question.replaceAll("\n","<br>")}</h2>`;
+
+    let html = "";
+
+    for(let i=1;i<=5;i++){
+
+        const choice = q[`choice${i}`];
+
+        if(choice){
+
+            html += `
+            <button onclick="checkAnswer('${choice}')">
+            ${choice}
+            </button>
+            <br><br>
+            `;
+        }
+    }
+
+    document.getElementById("choices").innerHTML = html;
+
+    document.getElementById("result").innerHTML = "";
+}
 
 function checkAnswer(selected){
     const result =
