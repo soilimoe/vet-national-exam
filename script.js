@@ -9,8 +9,9 @@ fetch(csvUrl)
 
     const cols = firstQuestion.split(",");
 
+    const question = cols[2].replaceAll('"', '');
     document.getElementById("question").innerHTML =
-      `<h2>${cols[2]}</h2>`;
+  `<h2>${question.replaceAll("\n", "<br>")}</h2>`;
 
     let html = "";
 
