@@ -29,8 +29,9 @@ Papa.parse(csvUrl, {
 
         document.getElementById("choices").innerHTML = html;
     }
-        
-    function checkAnswer(selected){
+});
+
+function checkAnswer(selected){
         const result =
         document.getElementById("result");
 
@@ -46,4 +47,3 @@ Papa.parse(csvUrl, {
 
         }
     }
-});
