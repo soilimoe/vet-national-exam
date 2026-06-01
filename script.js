@@ -46,7 +46,7 @@ function checkAnswer(selected){
         result.innerHTML =
         `
         <h2>⭕ 正解！</h2>
-        <p>${window.comment}</p>
+        <p><b>解説：</b><br>${window.comment.replaceAll("\n","<br>")}</p>
         `;
 
     } else {
@@ -55,7 +55,7 @@ function checkAnswer(selected){
         `
         <h2>❌ 不正解</h2>
         <p>正解：${window.correctAnswer}</p>
-        <p>${window.comment}</p>
+        <p><b>解説：</b><br>${window.comment.replaceAll("\n","<br>")}</p>
         `;
 
     }
