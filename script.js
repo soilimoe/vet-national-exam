@@ -29,4 +29,22 @@ Papa.parse(csvUrl, {
 
         document.getElementById("choices").innerHTML = html;
     }
+    function checkAnswer(selected){
+
+    const result =
+    document.getElementById("result");
+
+    if(selected === window.correctAnswer){
+
+        result.innerHTML =
+        "<h2>⭕ 正解！</h2>";
+
+    } else {
+
+        result.innerHTML =
+        "<h2>❌ 不正解</h2>";
+
+    }
+
+}
 });
