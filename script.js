@@ -8,7 +8,6 @@ Papa.parse(csvUrl, {
     complete: function(results) {
 
         const q = results.data[0];
-        console.log(q.question);
 
         document.getElementById("question").innerHTML =
             `<h2>${q.question.replaceAll("\n","<br>")}</h2>`;
