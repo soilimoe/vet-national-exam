@@ -1,3 +1,5 @@
+alert("script.js 読み込み成功");
+
 function loadSheet(sheetName){
     console.log("読み込み:", sheetName);
     const csvUrl =
