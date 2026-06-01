@@ -60,3 +60,7 @@ function checkAnswer(selected){
 
     }
 }
+
+function nextQuestion() {
+    alert("次へ");
+}
