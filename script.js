@@ -7,6 +7,9 @@ Papa.parse(csvUrl, {
 
     complete: function(results) {
 
+        window.questions = results.data;
+        window.currentQuestion = 0;
+        
         const q = results.data[0];
         window.correctAnswer = q.answer;
         window.comment = q.comment;
