@@ -33,5 +33,18 @@ Papa.parse(csvUrl, {
 });
 
 function checkAnswer(selected){
-    alert(selected);
+    const result =
+    document.getElementById("result");
+
+    if(selected === window.correctAnswer){
+
+        result.innerHTML =
+        "<h2>⭕ 正解！</h2>";
+
+    } else {
+
+        result.innerHTML =
+        "<h2>❌ 不正解</h2>";
+
+    }
 }
