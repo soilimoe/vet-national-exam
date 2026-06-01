@@ -85,3 +85,11 @@ function nextQuestion(){
         showQuestion();
     }
 }
+
+const params =
+new URLSearchParams(window.location.search);
+
+const sheetName =
+params.get("sheet") || "生理・生化";
+
+loadSheet(sheetName);
