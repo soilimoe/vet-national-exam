@@ -3,8 +3,6 @@ const csvUrl = "https://docs.google.com/spreadsheets/d/1pcYtP8XjDBDOrn5T90sLkeIQ
 fetch(csvUrl)
   .then(response => response.text())
   .then(data => {
-    console.log(data);
-
-    document.getElementById("quiz").innerHTML =
-      "<pre>" + data + "</pre>";
+    const rows = data.split("\n");
+    console.log(rows);
   });
