@@ -24,6 +24,14 @@ function showQuestion(){
     const q =
     window.questions[window.currentQuestion];
 
+    const percent =
+        Math.round(100 * (window.currentQuestion + 1)/ window.questions.length);
+    
+    document.getElementById("progress").innerHTML =
+        `<h3>問題 ${window.currentQuestion + 1} / ${window.questions.length}（${percent}%）
+        </h3>
+        `;
+
     window.correctAnswer = q.answer;
     window.comment = q.comment;
 
