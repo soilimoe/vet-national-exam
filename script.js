@@ -100,7 +100,7 @@ function showQuestion(){
     const q = window.questions[window.currentQuestion];
     let img = "";
     if(q.image){
-        img =`https://drive.google.com/thumbnail?id=${q.image}&sz=w500`;
+        img =`https://drive.google.com/thumbnail?id=${q.image}&sz=w150`;
     }
 
     const category = q.category || window.currentCategory || "";
