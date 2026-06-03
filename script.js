@@ -97,8 +97,8 @@ async function loadMixedMode(){
 // ■ 問題表示
 // =========================
 function showQuestion(){
-
     const q = window.questions[window.currentQuestion];
+    console.log("image =", q.image);
     let img = "";
     if(q.image){
         img =`https://drive.google.com/thumbnail?id=${q.image}&sz=w1200`;
