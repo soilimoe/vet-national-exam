@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>ログイン</h1>
+
+<input
+  type="password"
+  id="password"
+  placeholder="パスワード">
+
+<br><br>
+
+<input
+  id="studentID"
+  placeholder="学生番号">
+
+<br><br>
+
+<button onclick="login()">
+ログイン
+</button>
+
+<script>
+
+const PASSWORD = "vet2026";
+
+async function login(){
+
+  const pw =
+  document.getElementById("password").value;
+
+  const studentID =
+  document.getElementById("studentID").value;
+
+  if(pw !== PASSWORD){
+
+    alert("パスワードが違います");
+    return;
+  }
+
+  await fetch(
+    "GASのURL",
+    {
+      method:"POST",
+      body:JSON.stringify({
+        studentID:studentID
+      })
+    }
+  );
+
+  location.href = "index.html";
+}
+
+</script>
+
+</body>
+</html>
