@@ -17,6 +17,13 @@ function doPost(e) {
     .createTextOutput("OK");
 }
 
+function logout(){
+
+    localStorage.removeItem("loggedIn");
+
+    location.href = "login.html";
+}
+
 // =========================
 // ■ シャッフル関数
 // =========================
