@@ -4,19 +4,20 @@
 <meta charset="utf-8">
 <title>Vet Quiz</title>
 </head>
+<body>
 
 <script>
-
 if(
   localStorage.getItem("loggedIn")
   !== "true"
 ){
   location.href = "login.html";
 }
-
 </script>
 
-<body>
+<button onclick="logout()">
+ログアウト
+</button>
 
 <h1>獣医国試クイズ</h1>
 
