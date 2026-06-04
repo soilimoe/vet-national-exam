@@ -126,7 +126,7 @@ function showQuestion(){
     const q = window.questions[window.currentQuestion];
     let img = "";
     if(q.image){
-        img =`https://drive.google.com/thumbnail?id=${q.image}&sz=w150`;
+        img =`https://drive.google.com/thumbnail?id=${q.image}&sz=w300`;
     }
 
     const category = q.category || window.currentCategory || "";
