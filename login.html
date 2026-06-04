@@ -32,6 +32,11 @@ async function login(){
   const studentID =
   document.getElementById("studentID").value;
 
+  if(!/^\d{8}$/.test(studentID)){
+    alert("学生番号は8桁の半角数字で入力してください");
+    return;
+  }
+
   const response =
   await fetch(
     "https://script.google.com/macros/s/AKfycbyKk5NzuTywt_vdRHAcpskyzS8SDWVUU8T6R0mjATzhVZa65_KWNyDVL7ADUaRWkcQy3Q/exec",
