@@ -5,6 +5,17 @@
 <title>Vet Quiz</title>
 </head>
 
+<script>
+
+if(
+  localStorage.getItem("loggedIn")
+  !== "true"
+){
+  location.href = "login.html";
+}
+
+</script>
+
 <body>
 
 <h1>獣医国試クイズ</h1>
