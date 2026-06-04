@@ -1,3 +1,22 @@
+function doPost(e) {
+
+  const sheet =
+  SpreadsheetApp
+  .getActiveSpreadsheet()
+  .getSheetByName("AccessLog");
+
+  const data =
+  JSON.parse(e.postData.contents);
+
+  sheet.appendRow([
+    new Date(),
+    data.studentID
+  ]);
+
+  return ContentService
+    .createTextOutput("OK");
+}
+
 // =========================
 // ■ シャッフル関数
 // =========================
