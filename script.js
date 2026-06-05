@@ -121,6 +121,18 @@ async function loadMixedMode(){
     showQuestion();
 }
 
+async function loadChallenge20(){
+
+    await loadMixedMode();
+
+    window.questions =
+        window.questions.slice(0,20);
+
+    window.challengeMode = true;
+
+    showQuestion();
+}
+
 
 // =========================
 // ■ 問題表示
@@ -220,11 +232,51 @@ function checkAnswer(selected){
 // =========================
 function nextQuestion(){
 
-    if(window.currentQuestion < window.questions.length - 1){
+    if(
+        window.currentQuestion
+        <
+        window.questions.length - 1
+    ){
 
         window.currentQuestion++;
+
         showQuestion();
+
+    }else{
+
+        finishQuiz();
+
     }
+}
+
+function finishQuiz(){
+
+    const rate =
+    Math.round(
+        100 *
+        window.correctCount /
+        window.answerCount
+    );
+
+    document.body.innerHTML = `
+        <h1>チャレンジ終了！</h1>
+
+        <h2>
+        ${window.correctCount}
+        /
+        ${window.answerCount}
+        </h2>
+
+        <h2>
+        正答率 ${rate}%
+        </h2>
+
+        <button onclick="
+            location.href='index.html'
+        ">
+        トップへ戻る
+        </button>
+    `;
 }
 
 
@@ -239,8 +291,12 @@ const sheetName = params.get("sheet") || "生理・生化";
 console.log("mode =", mode);
 console.log("sheetName =", sheetName);
 
-if(mode === "mixed"){
+if(mode === "challenge20"){
+    loadChallenge20();
+}
+else if(mode === "mixed"){
     loadMixedMode();
-} else {
+}
+else{
     loadSheet(sheetName);
 }
