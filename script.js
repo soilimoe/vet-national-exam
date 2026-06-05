@@ -1,3 +1,6 @@
+window.correctCount = 0;
+window.answerCount = 0;
+
 function doPost(e) {
 
   const sheet =
@@ -181,6 +184,8 @@ function checkAnswer(selected){
         <h2>⭕ 正解！</h2>
         <p><b>解説：</b><br>${window.comment.replaceAll("\n","<br>")}</p>
         `;
+        window.correctCount++;
+        window.answerCount++;
 
     } else {
 
@@ -190,6 +195,7 @@ function checkAnswer(selected){
         <p>正解：${window.correctAnswer}</p>
         <p><b>解説：</b><br>${window.comment.replaceAll("\n","<br>")}</p>
         `;
+        window.answerCount++;
     }
 }
 
