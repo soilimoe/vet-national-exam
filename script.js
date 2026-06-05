@@ -138,13 +138,6 @@ async function loadChallenge20(){
 // ■ 問題表示
 // =========================
 function showQuestion(){
-    console.log(document.getElementById("progress"));
-console.log(document.getElementById("progressCircle"));
-console.log(document.getElementById("score"));
-console.log(document.getElementById("question"));
-console.log(document.getElementById("choices"));
-console.log(document.getElementById("result"));
-console.log(document.getElementById("nextButton"));
   
     window.answered = false;
     const q = window.questions[window.currentQuestion];
@@ -237,6 +230,20 @@ function checkAnswer(selected){
       document.querySelectorAll("#choices button");
       buttons.forEach(btn => {
         btn.disabled = true;
+    });
+
+    buttons.forEach(btn => {
+      btn.disabled = true;
+      if(btn.textContent.trim() === window.correctAnswer){
+        btn.classList.add("correct-choice");
+      }
+      if(selected !== window.correctAnswer){
+        buttons.forEach(btn => {
+          if(btn.textContent.trim() === selected){
+            btn.classList.add("wrong-choice");
+          }
+        });
+      }
     });
 
     const result = document.getElementById("result");
