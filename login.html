@@ -39,7 +39,41 @@ async function login(){
   const studentID =
   document.getElementById("studentID").value;
 
-  ...
+  if(!/^\d{8}$/.test(studentID)){
+    alert("学生番号は8桁の半角数字です");
+    return;
+  }
+
+  const response =
+  await fetch(
+    "あなたのGAS URL",
+    {
+      method:"POST",
+      body:JSON.stringify({
+        password: pw,
+        studentID: studentID
+      })
+    }
+  );
+
+  const result =
+  await response.text();
+
+  if(result === "OK"){
+
+    localStorage.setItem(
+      "loggedIn",
+      "true"
+    );
+
+    location.href =
+    "index.html";
+
+  }else{
+
+    alert("パスワードが違います");
+
+  }
 }
 
 </script>
