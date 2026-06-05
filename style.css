@@ -288,6 +288,17 @@ input{
     margin:auto;
 }
 
+.status-row{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin-bottom:20px;
+}
+
 /* =========================
    解説
 ========================= */
