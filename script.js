@@ -180,6 +180,7 @@ function showQuestion(){
 
     document.getElementById("choices").innerHTML = html;
     document.getElementById("result").innerHTML = "";
+    document.getElementById("nextButton").innerHTML = "";
 
     const rate =
     window.answerCount === 0
@@ -247,6 +248,12 @@ function checkAnswer(selected){
         `;
         window.answerCount++;
     }
+    document.getElementById("nextButton").innerHTML =
+      `
+      <button onclick="nextQuestion()">
+      次の問題へ
+      </button>
+      `;
 }
 
 
