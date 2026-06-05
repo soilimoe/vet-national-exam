@@ -312,6 +312,10 @@ input{
     border-radius:12px;
 }
 
+#answerSection{
+    scroll-margin-top:20px;
+}
+
 /* =========================
    スマホ
 ========================= */
