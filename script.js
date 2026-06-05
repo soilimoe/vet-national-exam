@@ -217,14 +217,6 @@ function showQuestion(){
     document.getElementById("choices").innerHTML = html;
     document.getElementById("result").innerHTML = "";
     document.getElementById("nextButton").innerHTML = "";
-
-    const rate =
-    window.answerCount === 0
-    ? 0
-    : Math.round(
-      100 * window.correctCount /
-      window.answerCount
-    );
 }
 
 
