@@ -3,20 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Vet Quiz</title>
-<style>
-body{
-    max-width:800px;
-    margin:auto;
-    padding:15px;
-}
-  
-button{
-    width:100%;
-    font-size:24px;
-    padding:15px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -29,72 +16,40 @@ if(
 }
 </script>
 
-<button onclick="logout()">
-ログアウト
-</button>
+<div class="container">
+    <div class="card">
+        <button class="logout" onclick="logout()">ログアウト</button>
+        <h1>獣医国試クイズ</h1>
+    </div>
 
-<h1>獣医国試クイズ</h1>
+    <div class="card">
+        <h2>🔀 ランダム問題</h2>
+        <p>様々な分野からランダムに出題</p>
+        <button class="dark-btn" onclick="location.href='quiz.html?mode=mixed'">総合全問ランダム</button>
+        
+        <br><br>
+        
+        <button class="dark-btn" onclick="location.href='quiz.html?mode=challenge20'">20問チャレンジ</button>
+    </div>
 
-<button onclick="location.href='quiz.html?mode=mixed'">
-総合全問ランダム
-</button>
-
-<button onclick="location.href='quiz.html?mode=challenge20'">
-20問チャレンジ
-</button>
-<br><br>
-
-<button onclick="location.href='quiz.html?sheet=倫理・法規・概論'">
-倫理・法規・概論
-</button>
-
-<button onclick="location.href='quiz.html?sheet=生理・生化学'">
-生理・生化学
-</button>
-
-<button onclick="location.href='quiz.html?sheet=薬理'">
-薬理
-</button>
-  
-<button onclick="location.href='quiz.html?sheet=毒性'">
-毒性
-</button>
-
-<button onclick="location.href='quiz.html?sheet=解剖・放射線'">
-解剖・放射線
-</button>
-
-<button onclick="location.href='quiz.html?sheet=免疫・微生物・感染症'">
-感染症（免疫・微生物・感染症）
-</button>
-
-<button onclick="location.href='quiz.html?sheet=病理'">
-病理
-</button>
-
-<button onclick="location.href='quiz.html?sheet=実験動物・行動学'">
-実験動物・行動学
-</button>
-
-<button onclick="location.href='quiz.html?sheet=野生動物・人獣'">
-野生動物・人獣共通感染症
-</button>
-
-<button onclick="location.href='quiz.html?sheet=公衆衛生・家畜衛生・食品衛生'">
-公衆衛生
-</button>
-
-<button onclick="location.href='quiz.html?sheet=内科・外科'">
-臨床総論（内科・外科）
-</button>
-
-<button onclick="location.href='quiz.html?sheet=牛・馬・豚・繁殖'">
-産業動物（牛・馬・豚）・繁殖
-</button>
-
-<button onclick="location.href='quiz.html?sheet=家禽疾病・魚病'">
-特殊動物医学（家禽疾病・魚病）
-</button>
+    <div class="card">
+        <h2>🎯 分野別問題</h2>
+        <div class="category-grid">
+            <button class="category-btn ethics" onclick="location.href='quiz.html?sheet=倫理・法規・概論'">倫理・法規・概論</button>
+            <button class="category-btn biochemistry" onclick="location.href='quiz.html?sheet=生理・生化学'">生理・生化学</button>
+            <button class="category-btn pharmacology" onclick="location.href='quiz.html?sheet=薬理'">薬理</button>
+            <button class="category-btn toxicology" onclick="location.href='quiz.html?sheet=毒性'">毒性</button>
+            <button class="category-btn anatomy" onclick="location.href='quiz.html?sheet=解剖・放射線'">解剖・放射線</button>
+            <button class="category-btn infection" onclick="location.href='quiz.html?sheet=免疫・微生物・感染症'">感染症（免疫・微生物・感染症）</button>
+            <button class="category-btn pathology" onclick="location.href='quiz.html?sheet=病理'">病理</button>
+            <button class="category-btn animal" onclick="location.href='quiz.html?sheet=実験動物・行動学'">実験動物・行動学</button>
+            <button class="category-btn wild" onclick="location.href='quiz.html?sheet=野生動物・人獣'">野生動物・人獣共通感染症</button>
+            <button class="category-btn hygiene" onclick="location.href='quiz.html?sheet=公衆衛生・家畜衛生・食品衛生'">公衆衛生</button>
+            <button class="category-btn clinical" onclick="location.href='quiz.html?sheet=内科・外科'">臨床総論（内科・外科）</button>
+            <button class="category-btn large" onclick="location.href='quiz.html?sheet=牛・馬・豚・繁殖'">産業動物（牛・馬・豚）・繁殖</button>
+            <button class="category-btn exotic" onclick="location.href='quiz.html?sheet=家禽疾病・魚病'">特殊動物医学（家禽疾病・魚病）</button>
+        </div>
+    </div>
   
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script src="script.js"></script>
