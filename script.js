@@ -302,6 +302,14 @@ function nextQuestion(){
         finishQuiz();
 
     }
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    if(window.answered){
+        return;
+    }
 }
 
 function finishQuiz(){
