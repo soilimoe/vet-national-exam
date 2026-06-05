@@ -228,6 +228,13 @@ function showQuestion(){
 // ■ 解答チェック
 // =========================
 function checkAnswer(selected){
+
+  document.getElementById("answerSection")
+  .scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+  });
+  
     if(window.answered){
       return;
     }
