@@ -67,6 +67,16 @@ button{
     color:white;
 }
 
+.random-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.random-grid button{
+    width:100%;
+}
+
 /* =========================
    分野ボタン
 ========================= */
