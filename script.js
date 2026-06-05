@@ -229,10 +229,10 @@ function showQuestion(){
 // =========================
 function checkAnswer(selected){
 
-  document.getElementById("answerSection")
+  document.getElementById("result")
   .scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+      behavior:"smooth",
+      block:"start"
   });
   
     if(window.answered){
