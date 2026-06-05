@@ -230,6 +230,16 @@ input{
     margin-bottom:15px;
 }
 
+.correct-choice{
+    background:#4CAF50 !important;
+    color:white;
+}
+
+.wrong-choice{
+    background:#F44336 !important;
+    color:white;
+}
+
 /* =========================
    解説
 ========================= */
