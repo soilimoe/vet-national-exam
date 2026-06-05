@@ -170,10 +170,7 @@ function showQuestion(){
         if(choice){
 
             html += `
-                <button onclick="checkAnswer('${choice}')">
-                    ${choice}
-                </button>
-                <br><br>
+            <button class="choice-btn" onclick="checkAnswer('${choice}')">${choice}</button>
             `;
         }
     }
