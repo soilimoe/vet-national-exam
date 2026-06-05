@@ -129,9 +129,8 @@ async function loadChallenge20(){
         window.questions.slice(0,20);
 
     window.challengeMode = true;
-
-    showQuestion();
     window.categoryStats = {};
+    showQuestion();
 }
 
 
@@ -139,6 +138,7 @@ async function loadChallenge20(){
 // ■ 問題表示
 // =========================
 function showQuestion(){
+    window.answered = false;
     const q = window.questions[window.currentQuestion];
     let img = "";
     if(q.image){
@@ -202,6 +202,16 @@ function showQuestion(){
 // ■ 解答チェック
 // =========================
 function checkAnswer(selected){
+    if(window.answered){
+      return;
+    }
+    window.answered = true;
+
+    const buttons =
+      document.querySelectorAll("#choices button");
+      buttons.forEach(btn => {
+        btn.disabled = true;
+    });
 
     const result = document.getElementById("result");
     const q = window.questions[window.currentQuestion];
@@ -226,7 +236,7 @@ function checkAnswer(selected){
         `;
         window.correctCount++;
         window.answerCount++;
-
+        window.categoryStats[category].correct++;
     } else {
 
         result.innerHTML =
@@ -264,25 +274,52 @@ function nextQuestion(){
 
 function finishQuiz(){
 
-    const rate =
+    const totalRate =
     Math.round(
         100 *
         window.correctCount /
         window.answerCount
     );
 
+    let categoryHtml = "";
+
+    for(const category in window.categoryStats){
+
+        const stat =
+        window.categoryStats[category];
+
+        const rate =
+        Math.round(
+            100 *
+            stat.correct /
+            stat.total
+        );
+
+        categoryHtml += `
+        <p>
+        <b>${category}</b><br>
+        ${stat.correct}/${stat.total}
+        （${rate}%）
+        </p>
+        `;
+    }
+
     document.body.innerHTML = `
-        <h1>チャレンジ終了！</h1>
+        <h1>20問チャレンジ終了！</h1>
 
         <h2>
+        総合
         ${window.correctCount}
         /
         ${window.answerCount}
+        （${totalRate}%）
         </h2>
 
-        <h2>
-        正答率 ${rate}%
-        </h2>
+        <hr>
+
+        <h2>分野別成績</h2>
+
+        ${categoryHtml}
 
         <button onclick="
             location.href='index.html'
