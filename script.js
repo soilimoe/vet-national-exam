@@ -204,6 +204,18 @@ function showQuestion(){
 function checkAnswer(selected){
 
     const result = document.getElementById("result");
+    const q = window.questions[window.currentQuestion];
+    const category = q.category || window.currentCategory;
+    if(!window.categoryStats){
+      window.categoryStats = {};
+    }
+    if(!window.categoryStats[category]){
+      window.categoryStats[category] = {
+        total: 0,
+        correct: 0
+    };
+    }
+    window.categoryStats[category].total++;
 
     if(selected === window.correctAnswer){
 
