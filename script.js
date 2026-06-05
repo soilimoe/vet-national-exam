@@ -190,9 +190,16 @@ function showQuestion(){
 
     document.getElementById("score").innerHTML =
       `
-      正答率：
-      ${window.correctCount}/${window.answerCount}
-      （${rate}%）
+      <div class="score-circle"
+      style="
+      background:
+      conic-gradient(
+      #2196F3 ${rate}%,
+      #e0e0e0 ${rate}%
+      );
+      ">
+      ${rate}%
+      </div>
       `;
     
   document.getElementById("progressCircle").innerHTML =
