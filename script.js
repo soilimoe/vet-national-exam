@@ -218,40 +218,6 @@ function showQuestion(){
       100 * window.correctCount /
       window.answerCount
     );
-
-    document.getElementById("score").innerHTML =
-      `
-      <div class="score-circle"
-      style="
-      background:
-      conic-gradient(
-      #2196F3 ${rate}%,
-      #e0e0e0 ${rate}%
-      );
-      ">
-      ${rate}%
-      </div>
-      `;
-    
-  document.getElementById("progressCircle").innerHTML =
-    `<div style="
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    background:
-    conic-gradient(
-    #4caf50 ${percent}%,
-    #ddd ${percent}%
-    );
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:20px;
-    font-weight:bold;
-    ">
-    ${percent}%
-    </div>
-    `;
 }
 
 
