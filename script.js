@@ -131,6 +131,7 @@ async function loadChallenge20(){
     window.challengeMode = true;
 
     showQuestion();
+    window.categoryStats = {};
 }
 
 
