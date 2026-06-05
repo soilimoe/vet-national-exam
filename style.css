@@ -1,0 +1,249 @@
+/* =========================
+   全体
+========================= */
+
+body{
+    margin:0;
+    padding:40px;
+    background:#f5f6fa;
+    font-family:
+        "Hiragino Sans",
+        "Yu Gothic",
+        sans-serif;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+/* =========================
+   カード
+========================= */
+
+.card{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    margin-bottom:25px;
+
+    box-shadow:
+    0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* =========================
+   タイトル
+========================= */
+
+h1{
+    font-size:56px;
+    margin:0;
+}
+
+h2{
+    margin-top:0;
+}
+
+/* =========================
+   ボタン共通
+========================= */
+
+button{
+    border:none;
+    border-radius:14px;
+
+    padding:18px;
+    font-size:24px;
+
+    cursor:pointer;
+}
+
+/* =========================
+   ランダム問題ボタン
+========================= */
+
+.dark-btn{
+    background:#4d5b73;
+    color:white;
+}
+
+/* =========================
+   分野ボタン
+========================= */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.category-btn{
+    color:white;
+    font-weight:bold;
+    min-height:70px;
+}
+
+/* 色 */
+.blue{
+    background:#2563eb;
+}
+
+.green{
+    background:#059669;
+}
+
+.orange{
+    background:#ea7a00;
+}
+
+.pink{
+    background:#ff0058;
+}
+
+.purple{
+    background:#5a3df0;
+}
+
+.teal{
+    background:#0f9d94;
+}
+
+.red{
+    background:#ff5400;
+}
+
+.cyan{
+    background:#0f7fa0;
+}
+
+/* =========================
+   ログアウト
+========================= */
+
+.logout{
+    float:right;
+
+    background:white;
+    border:1px solid #ddd;
+}
+
+/* =========================
+   入力フォーム
+========================= */
+
+input{
+    width:100%;
+    padding:18px;
+
+    font-size:22px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#f3f4f6;
+
+    box-sizing:border-box;
+}
+
+/* =========================
+   ログイン画面
+========================= */
+
+.login-box{
+
+    max-width:500px;
+    margin:120px auto;
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:40px;
+}
+
+.login-btn{
+
+    width:100%;
+
+    background:#000024;
+    color:white;
+
+    margin-top:20px;
+}
+
+/* =========================
+   クイズ画面
+========================= */
+
+.quiz-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:30px;
+}
+
+.choice-btn{
+
+    width:100%;
+
+    background:white;
+
+    border:2px solid #e5e7eb;
+
+    text-align:left;
+
+    font-size:26px;
+
+    margin-bottom:15px;
+}
+
+/* =========================
+   解説
+========================= */
+
+.explanation{
+
+    background:#f5f7fa;
+
+    padding:20px;
+
+    border-radius:12px;
+}
+
+/* =========================
+   スマホ
+========================= */
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    h1{
+        font-size:34px;
+    }
+
+    button{
+        font-size:18px;
+    }
+
+    .category-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quiz-layout{
+        grid-template-columns:1fr;
+    }
+
+    .choice-btn{
+        font-size:20px;
+    }
+
+    .login-box{
+        margin:50px auto;
+    }
+}
