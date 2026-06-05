@@ -168,6 +168,23 @@ function showQuestion(){
     </div>
     `;
 
+    document.getElementById("score").innerHTML =
+      `
+      <div class="circle-box">
+        <p>正答率</p>
+        <div class="circle"
+        style="
+        background:
+        conic-gradient(
+            #2196F3 ${rate}%,
+            #ddd ${rate}%
+        );
+        ">
+        ${rate}%
+        </div>
+    </div>
+    `;
+
     window.correctAnswer = q.answer;
     window.comment = q.comment;
 
