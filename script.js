@@ -138,6 +138,14 @@ async function loadChallenge20(){
 // ■ 問題表示
 // =========================
 function showQuestion(){
+    console.log(document.getElementById("progress"));
+console.log(document.getElementById("progressCircle"));
+console.log(document.getElementById("score"));
+console.log(document.getElementById("question"));
+console.log(document.getElementById("choices"));
+console.log(document.getElementById("result"));
+console.log(document.getElementById("nextButton"));
+  
     window.answered = false;
     const q = window.questions[window.currentQuestion];
     let img = "";
