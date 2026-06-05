@@ -150,6 +150,13 @@ function showQuestion(){
 
     const percent =
         Math.round(100 * (window.currentQuestion + 1) / window.questions.length);
+    const rate =
+      window.answerCount === 0
+      ? 0
+      : Math.round(
+        100 * window.correctCount /
+        window.answerCount
+      );
 
     document.getElementById("progressCircle").innerHTML =
       `
