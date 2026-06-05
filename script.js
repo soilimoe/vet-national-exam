@@ -196,6 +196,26 @@ function showQuestion(){
       ${window.correctCount}/${window.answerCount}
       （${rate}%）
       `;
+    
+  document.getElementById("progressCircle").innerHTML =
+    `<div style="
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:
+    conic-gradient(
+    #4caf50 ${percent}%,
+    #ddd ${percent}%
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:bold;
+    ">
+    ${percent}%
+    </div>
+    `;
 }
 
 
