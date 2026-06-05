@@ -292,6 +292,27 @@ input{
     margin:auto;
 }
 
+.circle-box{
+    text-align:center;
+}
+
+.circle{
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:10px auto;
+
+    font-size:24px;
+    font-weight:bold;
+    color:#333;
+}
+
 .status-row{
 
     display:flex;
