@@ -84,35 +84,55 @@ button{
 }
 
 /* 色 */
-.blue{
+.ethics{
     background:#2563eb;
 }
 
-.green{
+.biochemistry{
     background:#059669;
 }
 
-.orange{
+.pharmacology{
     background:#ea7a00;
 }
 
-.pink{
+.toxicology{
     background:#ff0058;
 }
 
-.purple{
+.anatomy{
     background:#5a3df0;
 }
 
-.teal{
+.infection{
     background:#0f9d94;
 }
 
-.red{
+.pathology{
     background:#ff5400;
 }
 
-.cyan{
+.animal{
+    background:#0f7fa0;
+}
+
+.wild{
+    background:#ff0058;
+}
+
+.hygiene{
+    background:#5a3df0;
+}
+
+.clinical{
+    background:#0f9d94;
+}
+
+.large{
+    background:#ff5400;
+}
+
+.exotic{
     background:#0f7fa0;
 }
 
