@@ -167,6 +167,21 @@ function showQuestion(){
 
     document.getElementById("choices").innerHTML = html;
     document.getElementById("result").innerHTML = "";
+
+    const rate =
+    window.answerCount === 0
+    ? 0
+    : Math.round(
+      100 * window.correctCount /
+      window.answerCount
+    );
+
+    document.getElementById("score").innerHTML =
+      `
+      正答率：
+      ${window.correctCount}/${window.answerCount}
+      （${rate}%）
+      `;
 }
 
 
