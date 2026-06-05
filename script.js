@@ -151,8 +151,22 @@ function showQuestion(){
     const percent =
         Math.round(100 * (window.currentQuestion + 1) / window.questions.length);
 
-    document.getElementById("progress").innerHTML =
-        `<h3>問題 ${window.currentQuestion + 1} / ${window.questions.length}（${percent}%）</h3>`;
+    document.getElementById("progressCircle").innerHTML =
+      `
+      <div class="circle-box">
+        <p>進捗</p>
+        <div class="circle"
+        style="
+        background:
+        conic-gradient(
+        #4CAF50 ${percent}%,
+        #ddd ${percent}%
+        );
+        ">
+        ${percent}%
+        </div>
+    </div>
+    `;
 
     window.correctAnswer = q.answer;
     window.comment = q.comment;
