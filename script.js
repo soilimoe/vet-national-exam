@@ -149,7 +149,7 @@ async function loadStatistics(){
             document.getElementById(
                 "questionCount"
             ).innerHTML =
-            data[0][1] + "問";
+            data[4][1] + "問";
         }
     });
 }
