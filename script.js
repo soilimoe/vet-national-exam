@@ -133,6 +133,26 @@ async function loadChallenge20(){
     showQuestion();
 }
 
+async function loadStatistics(){
+
+    const url =
+    "https://docs.google.com/spreadsheets/d/あなたのID/gviz/tq?tqx=out:csv&sheet=Statistics";
+
+    Papa.parse(url,{
+        download:true,
+        header:false,
+
+        complete:function(results){
+
+            const data = results.data;
+
+            document.getElementById(
+                "questionCount"
+            ).innerHTML =
+            data[0][1] + "問";
+        }
+    });
+}
 
 // =========================
 // ■ 問題表示
@@ -406,4 +426,8 @@ else if(mode === "mixed"){
 }
 else{
     loadSheet(sheetName);
+}
+
+if(document.getElementById("questionCount")){
+    loadStatistics();
 }
