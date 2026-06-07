@@ -143,13 +143,11 @@ async function loadStatistics(){
         header:false,
 
         complete:function(results){
-
-            const data = results.data;
-
-            document.getElementById(
-                "questionCount"
-            ).innerHTML =
-            data[4][1] + "問";
+          const data = results.data;
+          const totalQuestions =
+          data.find(row => row[0] === "問題数")[1];
+          document.getElementById("questionCount").innerHTML =
+            totalQuestions + "問";
         }
     });
 }
