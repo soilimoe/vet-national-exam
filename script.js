@@ -416,14 +416,32 @@ const sheetName = params.get("sheet") || "生理・生化";
 console.log("mode =", mode);
 console.log("sheetName =", sheetName);
 
-if(mode === "challenge20"){
-    loadChallenge20();
-}
-else if(mode === "mixed"){
-    loadMixedMode();
-}
-else{
-    loadSheet(sheetName);
+// if(mode === "challenge20"){
+//     loadChallenge20();
+// }
+// else if(mode === "mixed"){
+//     loadMixedMode();
+// }
+// else{
+//     loadSheet(sheetName);
+// }
+
+// if(document.getElementById("questionCount")){
+//     loadStatistics();
+// }
+
+if(document.getElementById("question")){
+
+    if(mode === "challenge20"){
+        loadChallenge20();
+    }
+    else if(mode === "mixed"){
+        loadMixedMode();
+    }
+    else{
+        loadSheet(sheetName);
+    }
+
 }
 
 if(document.getElementById("questionCount")){
