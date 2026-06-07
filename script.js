@@ -1,3 +1,5 @@
+console.log("SCRIPT UPDATED");
+
 window.correctCount = 0;
 window.answerCount = 0;
 
