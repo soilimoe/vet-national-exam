@@ -136,7 +136,7 @@ async function loadChallenge20(){
 async function loadStatistics(){
 
     const url =
-    "https://docs.google.com/spreadsheets/d/1pcYtP8XjDBDOrn5T90sLkeIQGJSOHEAisLU7m0QnPHg/export?format=csv&gid=Settings";
+    "https://docs.google.com/spreadsheets/d/1pcYtP8XjDBDOrn5T90sLkeIQGJSOHEAisLU7m0QnPHg/export?format=csv&gid=1968265172";
 
     Papa.parse(url,{
         download:true,
