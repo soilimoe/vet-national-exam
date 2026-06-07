@@ -143,7 +143,7 @@ async function loadStatistics(){
         header:false,
 
         complete:function(results){
-          console.log(results.data);
+          console.table(results.data);
           const data = results.data;
           const totalQuestions =
           data.find(row => row[0] === "問題数")[1];
