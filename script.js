@@ -1,24 +1,24 @@
 window.correctCount = 0;
 window.answerCount = 0;
 
-function doPost(e) {
+// function doPost(e) {
 
-  const sheet =
-  SpreadsheetApp
-  .getActiveSpreadsheet()
-  .getSheetByName("AccessLog");
+//   const sheet =
+//   SpreadsheetApp
+//   .getActiveSpreadsheet()
+//   .getSheetByName("AccessLog");
 
-  const data =
-  JSON.parse(e.postData.contents);
+//   const data =
+//   JSON.parse(e.postData.contents);
 
-  sheet.appendRow([
-    new Date(),
-    data.studentID
-  ]);
+//   sheet.appendRow([
+//     new Date(),
+//     data.studentID
+//   ]);
 
-  return ContentService
-    .createTextOutput("OK");
-}
+//   return ContentService
+//     .createTextOutput("OK");
+// }
 
 function logout(){
 
