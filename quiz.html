@@ -9,6 +9,7 @@
 
 <body>
 
+  <div id="quizPage">
     <div class="container">
         <h1>獣医国試クイズ</h1>
         <a href="index.html" class="back-btn">← 戻る</a>
@@ -34,6 +35,22 @@
             </div>
         </div>
     </div>
+  </div>
+    <div id="finishPage" style="display:none;">
+
+    <h1>20問チャレンジ終了！</h1>
+
+    <div id="finishSummary"></div>
+
+    <button onclick="showSaveForm()">
+        成績を保存する
+    </button>
+
+    <button onclick="location.href='index.html'">
+        トップへ戻る
+    </button>
+
+</div>
     <!-- 保存モーダル -->
     <div id="saveModal" class="modal">
         <div class="modal-content">
