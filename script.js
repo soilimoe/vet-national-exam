@@ -532,6 +532,26 @@ if(document.getElementById("graph")){
 
 function drawGraph(results){
 
+    const count = results.length;
+    const max =
+        Math.max(...results.map(r=>Number(r.score)));
+    const average =
+        Math.round(
+            results.reduce(
+            (sum,r)=>sum+Number(r.score),
+            0
+            )/count
+        );
+    const username = localStorage.getItem("username");
+
+    document.getElementById("summary").innerHTML = `
+    <h2>👤 ${username}</h2>
+    <p><b>受験回数：</b>${count}回</p>
+    <p><b>最高点：</b>${max}%</p>
+    <p><b>平均点：</b>${average}%</p>
+    <hr>
+    `;
+
     const labels =
         results.map(r =>
             new Date(r.date)
@@ -576,8 +596,12 @@ function drawGraph(results){
                 responsive:true,
 
                 plugins:{
+                    title:{
+                        display:true,
+                        text:"20問チャレンジ 成績推移"
+                    },
                     legend:{
-                        display:true
+                        display:false
                     }
                 },
 
