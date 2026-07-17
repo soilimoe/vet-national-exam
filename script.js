@@ -397,14 +397,72 @@ function finishQuiz(){
 
         ${categoryHtml}
 
+        <hr>
+
+        <button onclick="showSaveForm()">
+        成績を保存する
+        </button>
+
         <button onclick="
             location.href='index.html'
         ">
         トップへ戻る
         </button>
+
+        <div id="saveArea"></div>
     `;
 }
 
+function showSaveForm(){
+
+    document.getElementById("saveArea").innerHTML = `
+        <br>
+        <input
+            id="studentID"
+            placeholder="学籍番号">
+
+        <button onclick="saveScore()">
+            保存
+        </button>
+    `;
+
+}
+
+function saveScore(){
+
+    const studentID =
+        document.getElementById("studentID").value;
+
+    const score =
+        Math.round(
+            100 *
+            window.correctCount /
+            window.answerCount
+        );
+
+    fetch(GAS_URL,{
+
+        method:"POST",
+
+        body:JSON.stringify({
+
+            mode:"score",
+
+            studentID:studentID,
+
+            score:score
+
+        })
+
+    })
+    .then(r=>r.text())
+    .then(text=>{
+
+        alert("保存しました！");
+
+    });
+
+}
 
 // =========================
 // ■ 起動処理
