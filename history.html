@@ -6,10 +6,16 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
   <h1>成績推移</h1>
   <div id="summary"></div>
-  <canvas id="graph"></canvas>
-  <button onclick="location.href='index.html'">トップへ戻る</button>
+  <div class="graph-card">
+    <canvas id="graph"></canvas>
+  </div>
+  <div class="button-area">
+    <button onclick="location.href='index.html'">トップへ戻る</button>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
