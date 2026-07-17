@@ -438,11 +438,9 @@ function saveScore(){
 
         console.log(text);
       if(text=="OK"){
-        localStorage.setItem(
-            "username",
-            username
-        );
-        location.href="history.html";
+          localStorage.setItem("username",username);
+          closeModal();
+          location.href="history.html";
       }else{
         alert("保存失敗");
       }
@@ -450,10 +448,6 @@ function saveScore(){
     .catch(err => {
       console.error(err);
     });
-
-    localStorage.setItem("username",username);
-    closeModal();
-    location.href="history.html";
 }
 
 // =========================
