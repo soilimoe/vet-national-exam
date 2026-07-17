@@ -419,7 +419,7 @@ function showSaveForm(){
         <br>
         <input
             id="studentID"
-            placeholder="学籍番号">
+            placeholder="Username: 毎回同じものを記入してください。">
 
         <button onclick="saveScore()">
             保存
