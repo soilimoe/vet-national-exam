@@ -461,8 +461,9 @@ function saveScore(){
         alert("保存しました！");
       console.log(text);
     });
+  
     .catch(err => {
-    console.error(err);
+      console.error(err);
     });
 
 }
