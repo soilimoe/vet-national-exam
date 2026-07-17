@@ -361,37 +361,21 @@ function finishQuiz(){
         `;
     }
 
-    document.body.innerHTML = `
-        <h1>20問チャレンジ終了！</h1>
-
-        <h2>
-        総合
-        ${window.correctCount}
-        /
-        ${window.answerCount}
-        （${totalRate}%）
-        </h2>
-
-        <hr>
-
-        <h2>分野別成績</h2>
-
-        ${categoryHtml}
-
-        <hr>
-
-        <button onclick="showSaveForm()">
-        成績を保存する
-        </button>
-
-        <button onclick="
-            location.href='index.html'
-        ">
-        トップへ戻る
-        </button>
-
-        <div id="saveArea"></div>
+    document.getElementById("finishSummary").innerHTML = `
+    <h2>
+    総合
+    ${window.correctCount}
+    /
+    ${window.answerCount}
+    （${totalRate}%）
+    </h2>
+    <hr>
+    <h2>分野別成績</h2>
+    ${categoryHtml}
     `;
+
+    document.getElementById("quizPage").style.display="none";
+    document.getElementById("finishPage").style.display="block";
 }
 
 function showSaveForm(){
