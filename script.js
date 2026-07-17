@@ -1,25 +1,6 @@
 window.correctCount = 0;
 window.answerCount = 0;
 
-// function doPost(e) {
-
-//   const sheet =
-//   SpreadsheetApp
-//   .getActiveSpreadsheet()
-//   .getSheetByName("AccessLog");
-
-//   const data =
-//   JSON.parse(e.postData.contents);
-
-//   sheet.appendRow([
-//     new Date(),
-//     data.studentID
-//   ]);
-
-//   return ContentService
-//     .createTextOutput("OK");
-// }
-
 function logout(){
 
     localStorage.removeItem("loggedIn");
@@ -460,7 +441,11 @@ function saveScore(){
 
         console.log(text);
       if(text=="OK"){
-        alert("保存しました！");
+        localStorage.setItem(
+            "username",
+            username
+        );
+        location.href="history.html";
       }else{
         alert("保存失敗");
       }
@@ -512,4 +497,119 @@ if(document.getElementById("question")){
 
 if(document.getElementById("questionCount")){
     loadStatistics();
+}
+
+// =========================
+// ■ 成績履歴表示
+// =========================
+
+if(document.getElementById("graph")){
+
+    const username =
+        localStorage.getItem("username");
+
+    fetch("https://script.google.com/macros/s/AKfycbwJ3y1NKFwpsRWVGE_TJFppZMG8xa3Y4sCW3PbsgPBC6klsxMWPxZIqkC81WOuPXEsjEQ/exec",{
+
+        method:"POST",
+
+        body:JSON.stringify({
+
+            action:"getResults",
+
+            username:username
+
+        })
+
+    })
+    .then(r=>r.json())
+    .then(data=>{
+
+        drawGraph(data);
+
+    });
+
+}
+
+function drawGraph(data){
+
+    const canvas =
+        document.getElementById("graph");
+
+    const ctx =
+        canvas.getContext("2d");
+
+    canvas.width = 700;
+    canvas.height = 400;
+
+    ctx.clearRect(0,0,700,400);
+
+    if(data.length==0){
+
+        ctx.font="24px sans-serif";
+        ctx.fillText("データがありません",200,200);
+        return;
+
+    }
+
+    const margin=50;
+
+    const maxScore=100;
+
+    // 軸
+    ctx.beginPath();
+    ctx.moveTo(margin,20);
+    ctx.lineTo(margin,350);
+    ctx.lineTo(650,350);
+    ctx.stroke();
+
+    ctx.beginPath();
+
+    data.forEach((d,i)=>{
+
+        const x=
+        margin+
+        i*(600/(data.length-1||1));
+
+        const y=
+        350-
+        d.score/maxScore*300;
+
+        if(i==0){
+
+            ctx.moveTo(x,y);
+
+        }else{
+
+            ctx.lineTo(x,y);
+
+        }
+
+    });
+
+    ctx.stroke();
+
+    data.forEach((d,i)=>{
+
+        const x=
+        margin+
+        i*(600/(data.length-1||1));
+
+        const y=
+        350-
+        d.score/maxScore*300;
+
+        ctx.beginPath();
+
+        ctx.arc(x,y,4,0,2*Math.PI);
+
+        ctx.fill();
+
+        ctx.fillText(
+            d.score+"%",
+            x-10,
+            y-10
+        );
+
+    });
+
 }
