@@ -522,94 +522,84 @@ if(document.getElementById("graph")){
 
     })
     .then(r=>r.json())
-    .then(data=>{
+    .then(results=>{
 
-        drawGraph(data);
+        drawGraph(results);
 
     });
 
 }
 
-function drawGraph(data){
+function drawGraph(results){
 
-    const canvas =
-        document.getElementById("graph");
+    const labels =
+        results.map(r =>
+            new Date(r.date)
+            .toLocaleDateString("ja-JP")
+        );
 
-    const ctx =
-        canvas.getContext("2d");
+    const scores =
+        results.map(r =>
+            Number(r.score)
+        );
 
-    canvas.width = 700;
-    canvas.height = 400;
+    new Chart(
 
-    ctx.clearRect(0,0,700,400);
+        document.getElementById("graph"),
 
-    if(data.length==0){
+        {
 
-        ctx.font="24px sans-serif";
-        ctx.fillText("データがありません",200,200);
-        return;
+            type:"line",
 
-    }
+            data:{
 
-    const margin=50;
+                labels:labels,
 
-    const maxScore=100;
+                datasets:[{
 
-    // 軸
-    ctx.beginPath();
-    ctx.moveTo(margin,20);
-    ctx.lineTo(margin,350);
-    ctx.lineTo(650,350);
-    ctx.stroke();
+                    label:"20問チャレンジ 正答率",
 
-    ctx.beginPath();
+                    data:scores,
 
-    data.forEach((d,i)=>{
+                    borderWidth:3,
 
-        const x=
-        margin+
-        i*(600/(data.length-1||1));
+                    tension:0.3,
 
-        const y=
-        350-
-        d.score/maxScore*300;
+                    fill:false
 
-        if(i==0){
+                }]
 
-            ctx.moveTo(x,y);
+            },
 
-        }else{
+            options:{
 
-            ctx.lineTo(x,y);
+                responsive:true,
+
+                plugins:{
+                    legend:{
+                        display:true
+                    }
+                },
+
+                scales:{
+
+                    y:{
+
+                        min:0,
+                        max:100,
+
+                        ticks:{
+                            callback:value=>value+"%"
+                        }
+
+                    }
+
+                }
+
+            }
 
         }
 
-    });
-
-    ctx.stroke();
-
-    data.forEach((d,i)=>{
-
-        const x=
-        margin+
-        i*(600/(data.length-1||1));
-
-        const y=
-        350-
-        d.score/maxScore*300;
-
-        ctx.beginPath();
-
-        ctx.arc(x,y,4,0,2*Math.PI);
-
-        ctx.fill();
-
-        ctx.fillText(
-            d.score+"%",
-            x-10,
-            y-10
-        );
-
-    });
+    );
 
 }
