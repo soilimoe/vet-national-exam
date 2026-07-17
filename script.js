@@ -532,6 +532,12 @@ if(document.getElementById("graph")){
 
 function drawGraph(results){
 
+    if(results.length === 0){
+        document.getElementById("summary").innerHTML =
+        "<h2>まだ成績がありません</h2>";
+        return;
+    }
+
     const count = results.length;
     const max =
         Math.max(...results.map(r=>Number(r.score)));
