@@ -440,7 +440,7 @@ function saveScore(){
             window.answerCount
         );
 
-    fetch(GAS_URL,{
+    fetch("https://script.google.com/macros/s/AKfycbwtMUofKXcuujajuE85yP2eFjPrP_w5WSqAkpJzrXX3x581oeFCtAhFsCe4l7Wr49AWlg/exec",{
 
         method:"POST",
 
