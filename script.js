@@ -126,7 +126,7 @@ async function loadChallenge20(){
     await loadMixedMode();
 
     window.questions =
-        window.questions.slice(0,20);
+        window.questions.slice(0,1); //要訂正1→20
 
     window.challengeMode = true;
     window.categoryStats = {};
@@ -459,7 +459,10 @@ function saveScore(){
     .then(text=>{
 
         alert("保存しました！");
-
+      console.log(text);
+    });
+    .catch(err => {
+    console.error(err);
     });
 
 }
