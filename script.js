@@ -418,7 +418,7 @@ function showSaveForm(){
     document.getElementById("saveArea").innerHTML = `
         <br>
         <input
-            id="studentID"
+            id="username"
             placeholder="Username: 毎回同じものを記入してください。">
 
         <button onclick="saveScore()">
@@ -430,8 +430,8 @@ function showSaveForm(){
 
 function saveScore(){
 
-    const studentID =
-        document.getElementById("studentID").value;
+    const username =
+        document.getElementById("username").value;
 
     const score =
         Math.round(
@@ -448,7 +448,7 @@ function saveScore(){
 
             mode:"score",
 
-            studentID:studentID,
+            username:username,
 
             score:score
 
