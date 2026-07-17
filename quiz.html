@@ -34,6 +34,21 @@
             </div>
         </div>
     </div>
+    <!-- 保存モーダル -->
+    <div id="saveModal" class="modal">
+        <div class="modal-content">
+            <h2>成績を保存</h2>
+            <p>Usernameを入力してください</p>
+            <input
+                id="username"
+                type="text"
+                placeholder="Username">
+            <div class="modal-buttons">
+                <button onclick="closeModal()">キャンセル</button>
+                <button onclick="saveScore()">保存</button>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script src="script.js"></script>
 
