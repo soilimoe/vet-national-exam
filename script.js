@@ -440,7 +440,7 @@ function saveScore(){
             window.answerCount
         );
 
-    fetch("https://script.google.com/macros/s/AKfycbwtMUofKXcuujajuE85yP2eFjPrP_w5WSqAkpJzrXX3x581oeFCtAhFsCe4l7Wr49AWlg/exec",{
+    fetch("https://script.google.com/macros/s/AKfycbwJ3y1NKFwpsRWVGE_TJFppZMG8xa3Y4sCW3PbsgPBC6klsxMWPxZIqkC81WOuPXEsjEQ/exec",{
 
         method:"POST",
 
