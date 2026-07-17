@@ -396,21 +396,18 @@ function finishQuiz(){
 
 function showSaveForm(){
 
-    document.getElementById("saveArea").innerHTML = `
-        <br>
-        <input
-            id="username"
-            placeholder="Username: 毎回同じものを記入してください。">
+    document.getElementById("saveModal").style.display="flex";
 
-        <button onclick="saveScore()">
-            保存
-        </button>
-    `;
+}
+
+function closeModal(){
+
+    document.getElementById("saveModal").style.display="none";
 
 }
 
 function saveScore(){
-
+    
     const username =
         document.getElementById("username").value;
 
@@ -454,6 +451,9 @@ function saveScore(){
       console.error(err);
     });
 
+    localStorage.setItem("username",username);
+    closeModal();
+    location.href="history.html";
 }
 
 // =========================
