@@ -446,7 +446,7 @@ function saveScore(){
 
         body:JSON.stringify({
 
-            mode:"score",
+            action:"saveResult",
 
             username:username,
 
@@ -458,10 +458,13 @@ function saveScore(){
     .then(r=>r.text())
     .then(text=>{
 
+        console.log(text);
+      if(text=="OK"){
         alert("保存しました！");
-      console.log(text);
-    });
-  
+      }else{
+        alert("保存失敗");
+      }
+    })
     .catch(err => {
       console.error(err);
     });
